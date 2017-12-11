@@ -33,7 +33,7 @@ module.exports = function(file, opts) {
       content = fis.util.pad(' ', opts.tab) + content.split(/\n|\r\n|\r/g).join('\n' + fis.util.pad(' ', opts.tab));
     }
 
-    var prefix = (opts.defineNamespace && '') + 'define(\'' + (file.moduleId || file.id) + '\',' + deps + ' function(require, exports, module) {\n\n' + (opts.globalInjectCode && '') + '\n\n';
+    var prefix = (opts.defineNamespace || '') + 'define(\'' + (file.moduleId || file.id) + '\',' + deps + ' function(require, exports, module) {\n\n' + (opts.globalInjectCode || '') + '\n\n';
     var affix = '\n\n});\n';
 
     content = prefix + content + affix;
