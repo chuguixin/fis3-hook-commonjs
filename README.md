@@ -1,4 +1,4 @@
-# fis3-hook-commonjs
+# fis3-hook-ikcommonjs
 
 fis3 已经默认不自带模块化开发支持，那么如果需要采用 commonjs 规范作为模块化开发，请使用此插件。
 
@@ -74,7 +74,7 @@ npm install fis3-hook-commonjs
 
 
 ```js
-fis.hook('commonjs', {
+fis.hook('ikcommonjs', {
   // 配置项
 });
 ```
@@ -91,7 +91,7 @@ fis.hook('commonjs', {
 * `paths` 用来设置别名，路径基于 `baseUrl` 设置。
 
   ```js
-  fis.hook('commonjs', {
+  fis.hook('ikcommonjs', {
     paths: {
       $: '/modules/jquery/jquery-1.11.2.js'
     }
@@ -100,7 +100,7 @@ fis.hook('commonjs', {
 * `packages` 用来配置包信息，方便项目中引用。
 
   ```js
-  fis.hook('commonjs', {
+  fis.hook('ikcommonjs', {
     packages: [
       {
         name: 'foo',
@@ -120,10 +120,12 @@ fis.hook('commonjs', {
 * `ignoreDependencies` 默认为 空，用来忽略掉对某些资源 `require`，一般用来忽略掉内部实现的 `require` 资源。
 
   ```js
-  fis.hook('commonjs', {
+  fis.hook('ikcommonjs', {
     // 忽略 angular2 的依赖。我自己负责加载需要资源。
     ignoreDependencies: [
       'angular2/**',
     ]
   });
   ```
+* `defineNamespace` 默认为 `''`, 用来设置`define`函数的命名空间
+* `globalInjectCode` 默认为 `''`, 用来设置在define中需要注入的代码
